@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a href="#" class="logo">
+            <i class='bx bx-code-alt'></i>
+            <div class="logo-name"><span>SG</span>PM</div>
+        </a>
+        <ul class="side-menu">
+            <li class="active"><a href="{{ url_for('home') }}"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
+            <li><a href="#"><i class='bx bx-line-chart'></i>Prediction</a></li>
+            <li><a href="{{ url_for('showgraph') }}"><i class='bx bx-analyse'></i>Trained Dataset</a></li>
+            <li><a href="{{ url_for('profile') }}"><i class='bx bx-group'></i>Profile</a></li>
+            <li><a href="#"><i class='bx bx-cog'></i>Settings</a></li>
+        </ul>
+        <ul class="side-menu">
+            <li>
+                <a href="{{ url_for('logout') }}" class="logout">
+                    <i class='bx bx-log-out-circle'></i>
+                    Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- End of Sidebar -->
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Navbar -->
+        <nav>
+            <i class='bx bx-menu'></i>
+            <a href="#" class="notif">
+                <i class='bx bx-bell'></i>
+                <span class="count">12</span>
+            </a>
+            <a href="#" class="profile">
+                <img src="static/images/logo.png">
+            </a>
+        </nav>
+
+        <!-- End of Navbar -->
+
+        <main>         
+                <div class="left">
+                    {% block left %}{% endblock %}                   
+                </div>
+
+        </main>
+
+    </div>
+    
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   <!-- <script src="{{ url_for('static', filename='index.js') }}"></script>-->
+    <script>
+      function validateInputs() {
+        const g1 = document.getElementById("g1").value;
+        const g2 = document.getElementById("g2").value;
+        const studytime = document.getElementById("studytime").value;
+        const health = document.getElementById("health").value;
+        const famrel = document.getElementById("famrel").value;
+        const failures = document.getElementById("failures").value;
+        const absences = document.getElementById("absences").value;
+
+        const isValid =
+          !isNaN(g1) &&
+          g1 >= 1 &&
+          g1 <= 20 &&
+          !isNaN(g2) &&
+          g2 >= 1 &&
+          g2 <= 20 &&
+          !isNaN(studytime) &&
+          studytime >= 1 &&
+          studytime <= 5 &&
+          !isNaN(health) &&
+          health >= 1 &&
+          health <= 5 &&
+          !isNaN(famrel) &&
+          famrel >= 1 &&
+          famrel <= 5 &&
+          !isNaN(failures) &&
+          failures >= 1 &&
+          failures <= 5 &&
+          !isNaN(absences) &&
+          absences >= 1 &&
+          absences <= 5;
+        // Enable or disable the Predict button based on input validity
+        document.getElementById("predictButton").disabled = !isValid;
+      }
+      document
+        .getElementById("predictForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const g1 = document.getElementById("g1").value;
+          const g2 = document.getElementById("g2").value;
+          const studytime = document.getElementById("studytime").value;
+          const health = document.getElementById("health").value;
+          const famrel = document.getElementById("famrel").value;
+          const failures = document.getElementById("failures").value;
+          const absences = document.getElementById("absences").value;
+
+          // Make a POST request to the Flask API
+          fetch("/predict", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              features: [
+                parseFloat(g1),
+                parseFloat(g2),
+                parseFloat(studytime),
+                parseFloat(health),
+                parseFloat(famrel),
+                parseFloat(failures),
+                parseFloat(absences),
+              ],
+            }),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              const predictedResult = parseFloat(data.predicted_grade).toFixed(
+                2
+              );
+              document.getElementById(
+                "result"
+              ).innerText = `your predicted result is : ${predictedResult}`;
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+        });
+    </script>
+<script>
+
+
+const sideLinks = document.querySelectorAll('.sidebar .side-menu li a:not(.logout)');
+
+sideLinks.forEach(item => {
+    const li = item.parentElement;
+    item.addEventListener('click', () => {
+        sideLinks.forEach(i => {
+            i.parentElement.classList.remove('active');
+        })
+        li.classList.add('active');
+    })
+});
+
+const menuBar = document.querySelector('.content nav .bx.bx-menu');
+const sideBar = document.querySelector('.sidebar');
+
+menuBar.addEventListener('click', () => {
+    sideBar.classList.toggle('close');
+});
+
+
+window.addEventListener('resize', () => {
+    if (window.innerWidth < 768) {
+        sideBar.classList.add('close');
+    } else {
+        sideBar.classList.remove('close');
+    }
+    if (window.innerWidth > 576) {
+        searchBtnIcon.classList.replace('bx-x', 'bx-search');
+        searchForm.classList.remove('show');
+    }
+});
+
+</script>
+</body>
+
+</html>

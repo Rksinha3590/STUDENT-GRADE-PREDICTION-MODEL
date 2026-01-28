@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/bootstrap.css' )}}"/> 
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/sgpm.css' )}}"/> 
+    <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+          referrerpolicy="no-referrer" rel="stylesheet"/>
+
+    <title>SGPM | Rksinha</title>
+</head>
+<body>
+
+<!--   plx download the images, gifs from Pixcap Website here http://bit.ly/3zJ49Q7 -->
+
+<nav class="navbar navbar-expand-lg bg-color py-4 pt-lg-5">
+    <div class="container">
+        <a class="navbar-brand text-white fw-bold" href="#">Rksinha Project</a>
+        <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                class="navbar-toggler"
+                data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
+                <li class=" nav-item">
+                    <a aria-current="page" class="nav-link active" href="{{ url_for('index') }}">Home</a>
+                </li>
+                
+                <li class=" nav-item">
+                    <a class=" nav-link" href="#online_services">Services</a>
+                </li>
+                
+                <li class=" nav-item">
+                    <a class=" nav-link" href="#contact_section">Contact</a>
+                </li>
+                <li class=" nav-item">
+                    <a class=" nav-link" href="{{ url_for('login') }}">Login/Signup</a>
+                </li>
+                <li class=" nav-item">
+                    <a class=" nav-link" href="{{ url_for('admin_login') }}">Admin Login</a>
+                </li>
+
+
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+<!--hero section-->
+
+<section class="bg-main bg-color hero-section">
+    <div class="container">
+        <div class="row mb-5 ">
+            <div class="d-flex flex-column align-items-start justify-content-center col-xl-6 xol-lg-6 col-md-12 col-12 order-1 order-lg-0 text-md-start text-center">
+                <h1 class=" text-capitalize fw-bolder text-white">
+                    Student Grade Prediction Model
+                </h1>
+                <p class="mt-3 mb-5  para-width text-light-grey ">
+                    Helping teachers or, more importantly, students predict their final grades so that students who may not perform well can be informed earlier and take steps to improve their performance.</p>
+                </p>
+
+            </div>
+
+            <div class="col-xl-6 xol-lg-6 col-md-12 col-12 order-0 order-lg-1 hero-image--section ">
+                <div class="text-md-end text-center mb-5">
+
+                    <video autoplay class="hero-video--section" loop muted src="/static/images/hero.mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="custom-shape-divider-bottom-1684208460">
+        <svg data-name="Layer 1" preserveAspectRatio="none" viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg">
+            <path class="shape-fill"
+                  d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
+        </svg>
+    </div>
+</section>
+
+<!--hero section end -->
+
+
+<!--service section-->
+
+<section class=" services-section">
+    <div class="container text-center common-title fw-bold">
+        <h2 class="common-heading">Navigating Future:<br> Unveiling Final Year Grades</h2>
+        <hr class="w-25 mx-auto ">
+    </div>
+
+    <div class="container mt-5">
+        <div class="row g-5 ">
+            <div class="col-xxl-4 col-lg-4 col-12 ">
+                <div class=" card-box rounded-2 p-5 text-center">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAYAAAA5ZDbSAAAAAXNSR0IArs4c6QAABDJJREFUeF7t3OGN1DAQBWBfJVAKdAKVAJUAlUAnQCXHWkqkaLWXtd+Mx8+Tt3+QIOOx3xdn93JZXopeqRN4Sb06La4IOPlJIGABJ08g+fK0gwWcPIHky9MOFnDyBJIvTztYwMkTSL487WABJ08g+fK0gwWcPIHky7Pu4NfGfKx9GtvosPsErMELmPycEjA5kHV6ArYmSF4vYHIg6/QEbE2QvF7A5EDW6QnYmiB5vYDJgazTE7A1QfJ6AZMDWacnYGuC5PUCJgeyTk/A1gTJ6wVMDmSdnoCtCZLXC5gcyDo9AVsTJK8XMDmQdXoCtiZIXi9gciDr9ARsTZC8XsDkQNbpCdiaIHm9gMmBrNMTsDVB8noBcwJ9KqX88JiagD1S9B3jeymlAn+7DfvVOrSArQn61u+4+6hmZAH7AllGu8d1QRawhcSv9i1cM7KA/ZDQkZ7hmpAFjLL41LXiwsgC9oFCRunF3Xt8LKX8bm0o4NakfI9DcevPxp97pnJl4A+llC+33VD//Lvtip89u6Mn6MOxYbi151WB6w2EivvoZf7Z8wQ+FPeqwC0hj0Bu6fvo3Oi+LB8HudoO7gnZE7mn79HHhHu1HYyE7IGM9K02ZtwrAaMh14wsyGhfF9yrAKMhHy+VCDLa1w33CsBoyNZP12hfV9zswGjIZz/etuxktK87bmZgNOSWexdnyGjfIbhZgdGQW3D3Yx4ho32H4WYERkPuwX2EjPYdipsN2BLyv5Nbl8/ek99tz1D1niTDcTMBW3D3386c3Z/uxXt2fAhuFmAP3B0kAjkMNwOwJ24Eciju6sAjcEcih+OuDDwSdwTyFNxVgSNwPZGn4a4IHInrgTwVdzXgGbgW5Om4KwHPxEWQKXBXAWbA7UGmwV0BmAm3Bbnl14nP7nK5/jvzQ3eMuHv47w/PVNe/q89VV9zmbxy4Kp4MxgrMjBtl49KHEbh+0+AXsDqq9z5g/kNKGIHrQntv+gv3jdODFbgHWbgLvge3fGKtxwj3yYWdeQc/QxZuw7v2CsCPLtfCbcBd4UbHcRn7By/hNuKuBlzn6/Y/wHVktPShq1yilw555uQFPDP9gN4CDgh5ZgsBz0w/oLeAA0Ke2ULAM9MP6C3ggJBnthDwzPQDegs4IOSZLQQ8M/2A3gIOCHlmiyjgmWvM0Bt2ggu31F4zpLfAGmAnuFDAoacF7AQXCljAoQkkbwZvRLhwC/TP7cG3+pS/XmMTgJ3gwm099QH1+qC6XmMTgJ3gwm09dffWXazX2ARgJ7jwsJ7ebyGMjSLn6LATXHiXY93J9QtjulyPOcFgJ7hwzDo0qncCAvZOlGw8AZOBeE9HwN6Jko0nYDIQ7+kI2DtRsvEETAbiPR0BeydKNp6AyUC8pyNg70TJxhMwGYj3dATsnSjZeAImA/GejoC9EyUbT8BkIN7T+Q/4tuR5viNtAAAAAABJRU5ErkJggg=="/>                    
+                    <h5 class="my-3 fw-normal "> Linear Regression</h5>
+                    <p class="pe-3 mb-5">
+                        Hunky dory barney fanny around up the duff no biggie loo cup of tea jolly good ruddy say arse!
+                    </p>
+                    <div class="  d-flex justify-content-center align-items-center ">
+                        <a class="icon-span d-flex justify-content-center align-items-center rounded-circle mb-3"
+                           href="/service.html">
+                            <i class="fa-solid fa-arrow-right"> </i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xxl-4 col-lg-4 col-12  ">
+                <div class=" card-box rounded-2 p-5 text-center shadow">
+                    <img src="data:image/png;base64,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"/>
+
+                    <h5 class="my-3 fw-normal"> Trained Dataset </h5>
+                    <p class="pe-3 mb-5">
+                        Hunky dory barney fanny around up the duff no biggie loo cup of tea jolly good ruddy say arse!
+                    </p>
+                    <div class="  d-flex justify-content-center align-items-center ">
+                        <a class="icon-span d-flex justify-content-center align-items-center rounded-circle mb-3"
+                           href="/service.html">
+                            <i class="fa-solid fa-arrow-right"> </i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xxl-4 col-lg-4 col-12 ">
+                <div class=" card-box rounded-2 p-5 text-center">
+                    <img src="data:image/png;base64,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"/>
+                    <h5 class="my-3 fw-normal "> Searched Grade Analysis </h5>
+                    <p class="pe-3 mb-5">
+                        Hunky dory barney fanny around up the duff no biggie loo cup of tea jolly good ruddy say arse!
+                    </p>
+                    <div class="  d-flex justify-content-center align-items-center ">
+                        <a class="icon-span d-flex justify-content-center align-items-center rounded-circle mb-3"
+                           href="/service.html">
+                            <i class="fa-solid fa-arrow-right"> </i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+
+<section class="common-section business-section" id="online_services">
+    <div class="container text-center fw-bold common-title">
+        <h2 class="common-heading">Forecasting Future Via <br>ML Trained Dataset</h2>
+        <hr class="w-25 mx-auto ">
+    </div>
+
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-xl-6 col-md-12 ">
+                <div class="d-flex  px-3 py-5 shadow ">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAYAAAA5ZDbSAAAAAXNSR0IArs4c6QAABD1JREFUeF7tndF1FDEMRZ1OoBKgEqASoBJIJUAl0AlEYTYbkp2NtCNLGu2dHz7wWta779k+8OGbwddagZvW3dHcAHBzEwAYwM0VaN4eCQZwcwWat0eCAdxcgebtkWAApyvwR7kCb7Nm1VW2qxvmLYquqm1UltBZdW3qvDAawOsCAdjVavWEBjCA7xUovQuWXtxioKwkZdV1zQ2A6x0NAF5RwNusJNjVavWSBGAAc8ny8EBWkrLqemj2MIf3ueW6OG7R2+UEcL2zfzvVRzMAGMCuhrpksqyzMKvuJRqt/iY7wZ+Xlb0fY7xy7Sx3st9L+R9jjJ93vX3LWk4W4LdjjK/NoJ5jKMBv7wYcDB3GOwOwNPkprMNahb5EQ44GfM1wD1YLhRwJWLbl77UClbaaj1HnciTgX1d05r7kHDmTX780yOPvowB/WC5VHmvuMse7MYbcsqd+UYDlxiyQ+Y4KCFyBPPWLAsz2/BxjyDYdBVj7r0JT3VxscgAXAzJjOdMDNr3AogoJPm2P6fpPLwDgs8Gfrv/0AgAG8IyzbS9zTg+YpQDnaC3bqNipBrHN1iK7rEbFTjUIwAAuqUDzRanCqRpEgktaRcVONaggYMu6PelUumiqNFANAvCDRwDsGZczc1mM6bkkAHuqCeDt/wpmScLu3DvBbLvTwAJ4i17ewkSt+2nPu+sjSqjdCbPi5t31AWDbvgTgLs7v0gcJJsE2Bbo4v0sfJNjmX87gLs7v0gcJJsE2Bbo4v0sfJNjmX87gLs7v0gcJJsE2Bbo4v0sfJNjmX87gLs7v0gcJJsE2Bbo4v0sfJNjmX87gLs7v0oclwd7utWXn/9GWdW+p8/S3u9PAItTumvMku8y1Ow0AbHMBgG16XTzaYsyLi5z4IYA91TwzF4CVbyZahKrk3iAflS6jYqcaVPCCUVr5oMWp2KkGATgIma2Mip1qEIBtygeNVrFTDQJwEDJbGRU71SBb3ZOjuaCdFnG6/tMLkP6z8Ziu//QCAAawwwmw2ymmB2x6ARJMgncbP4eFTw/Y9AKLCDzK8dwNrd5skBfP5OUzvqMC8iKpvIA29YtKMM/aPccY8rxdFGB5G1gexyLF/0CHbM9SKAqw1OJ5u2OKQ561iwYs9Xhedoy2z8sKYNmqJck8ED31anWcPHKLftzSAbIAv4ZPzly5VE1/bfSpmFmAD2mWS9eb5fLVCbYAle92+VOOppQvE7C2Ye1/NXr3klVXq4tqnLcoqqLGQVlCZ9U1ynN+OIDX9QGwq9XqCQ1gAN8rUHoXLL24xUBZScqq65obANc7GgC8ooC3WUmwq9XqJQnAAOaS5eGBrCRl1fXQ7GEO73PLdXHcorfLCeB6Z/92qo9mADCAXQ11yWRZZ2FW3Us0Wv3NHhLs2vC1TQbg5sQBDODmCjRvjwQDuLkCzdsjwQBurkDz9kgwgJsr0Ly9vx+AuHlCkdcBAAAAAElFTkSuQmCC"/>
+
+                    <div class="row ">
+                        <p class="mb-3 fw-bolder">Grade Prediction Module </p>
+                        <p>Accepts input from users, such as current grades
+                            and attendance, and generates predicted grades for specific subjects or overall
+                            academic performance. </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-6 col-md-12 ">
+                <div class="d-flex  px-3 py-5 shadow ">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAYAAAA5ZDbSAAAAAXNSR0IArs4c6QAABVBJREFUeF7tnc+ODUEYxc/wABJhT3gDC3ZD4gXYsRosJKzFggQJC7EmsfBvw44XkGDHwhsQ9kTiAfy536Qrbu7M6K+6T3Wqvj6d3NxMpvp01fnVqarue2/3GrSFdmAtdOvUOAhw8E4gwAIc3IHgzVOCBTi4A8GbpwQLcHAHgjdPCRbg4A4Eb54SLMDBHQjePCVYgIM7ELx5SnAZwKcAnARwBMAhAHu7w/wA8BnARwCvAbwqc/h/qgLMc3gPgCsALgLY55T9DuAhgHsAfjr3ySomwFl27Vj4PIC7GWBXhQz0VQCPOdVRgpk+3gdwiST4AMBlktamjBI8zs3nAM6Mk9iy9wsAZ1maUwI+DsBe6907qw1MnRw/mMldbQMtyTkNGmrkAQBPKoaa2vUUwDlnI23OfeQsO7TYBcacXBrwTQA3hrZw4v0MrkHu22y1/GnEgqpPP/3fFl6Hx66uSwJuCW7OeuQ2gGteSiPL3QFwfYxGKcA2LH8ZU7GJ980Znr9NkN7lFO8f40UpwG8amHOXfbu1+MNGnL7NrlC97CtE/v/pMVe8SgDe6BZV5HYWlfPOvyVXzjs1cNSKugTg1uZeM/bEYsR56+hC7wEcdZRjFvkA4NhQwRKA7ZTIUtzSdnBR56+OCk85/1Lm4RKAbXFli6yWNq8PvwDsmrhhvwHsHnpMb8Ny9P/kFK6krNcHAV5c2GgRsIbojKS1CFiLLAHedECnSY0O0brQETzBdg5sw7Rnm/JUyT5wqO5SZYtzsJ0D20LLs83+w4YWARtY70Jr9h8XtgrYOw9bZ5j1B/6tAs4ZpkuvqEd9wLA8z3iv4HjmplSmVcBWf++nSqmts/zSXcuAc1PMTjItuakHKsFbx6acuTjtPasvvrecYAM2JMW232x+utI6YIOVc+Fju/VJ6B+fRQBs0IYM1TmL0UnKag7+v83NQxbg/wO2+dhOnTzf15okkbkHEeB+xwzys0Uxz9dq+9UmLiHAfsObHK4F2A94zClU3lGIpQU438ymhmwBzgec9mgCtAAPB7wM2lbZthAbutpOP463n9pSmVDFuhZHudAxBL2l2iC/63a2v9Mr/RjA3tPLiq3+fprKhComwEP6xJZ9qEyoYgIswBQHgotQQ0cVU4IpXY/KhComwAJMcSC4CDV0VDElmNL1qEyoYgIswBQHgotQQ0cVU4IpXY/KhComwAJMcSC4CDV0VDElmNL1qEyoYgIswBQHgotQQ0cVU4IpXY/KhComwAJMcSC4CDV0VDElmNL1qEyoYgIswBQHgotQQ0cVU4IpXY/KhComwAJMcSC4CDV0VDElmNL1qEyoYgIswBQHgotQQ0cVU4IpXY/KhComwAJMcSC4CDV0VDElmNL1qEyoYgIswBQHgotQQ0cVU4IpXY/KhComwPMA3OLDKSlkSCLU0FHFuga29vRvEheKTM6j5l0HLAG4xQdEu8yaoBD9doklANs9nyzF2vIdyH0oSO8RSgC2e0DZU8ANtDa/A2PvMr/tkUoAtgMZZFtsafM74H3yml+Rfdu8lSNvdEnOqtBMC9Pn3uRjqQSnFBvk1Vv1zZThjs0uBteOWBJwapHm5O3Z2j0sbVi292LbFIBTmtMNONe7BVi6OWexxlUmnG5KajcqtQXV0DvTZjVrKsBZlVJhngMCzPOySiUBrhILr1ICzPOySiUBrhILr1ICzPOySiUBrhILr1ICzPOySiUBrhILr1ICzPOySiUBrhILr1ICzPOySiUBrhILr1ICzPOySiUBrhILr1ICzPOySiUBrhILr1ICzPOySiUBrhILr1ICzPOySqW/OvzSean+Pb4AAAAASUVORK5CYII="/>
+
+                    <div class="row ">
+                        <p class="mb-3 fw-bolder">Early Warning System </p>
+                        <p>It incorporates an early warning system that identifies
+                            students at risk of failing or struggling based on grade predictions, enabling timely
+                            intervention and support. </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 col-md-12 ">
+                <div class="d-flex  px-3 py-5 shadow ">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAYAAAA5ZDbSAAAAAXNSR0IArs4c6QAABTxJREFUeF7tneGR1DAMhX2dQCVAJUAlQCVwlQCVQCdwYpIjLLvJkyytFfllhrk/siO/z7JFrGQfGq/SCjyUHh0H1wi4+CQgYAIurkDx4TGCCbi4AsWHxwgm4OIKFB8eI5iA767Ax+WOb1trL+5+9/E3/Lm48K219v1Jgy89LmWK4Nettc+TQt1jKMAfnwzWia/inQWwOP9B5fl8xp8skDMAJlx8sqohjwYsy/JXfHy0bK291+zLowH/4J6rnrSyJ79EW40E/G5JqlBfafdXgTetNcmyD6+RgCVjFsi89AoIXIF8eI0EzOX5EM9NA3iZHgn4l31807ck4AmmABSckFGQWIzgPmEhdpBRnx83WxNwn7AQO8iozw8CDtIPYgcZBTnICO4TFmIHGfX5wQgO0g9iBxkFOcgI7hMWYgcZ9fnBCA7SD2IHGQU5yAjuExZiBxn1+cEIDtIPYgcZBTnICO4TFmIHGfX5wQgO0g9iBxkFOVg5gqUSUsprpFolqjIUYgcZEbBKge1ZrcCVYsKIc2+IHWSkGh5uXDGCrx3jCWQB7F01CrGDjHBmKsuKgPdKabyrRyF2kJEKG25cDTBSJyXRLJUsHhfEDjLy8OZKH5UAa0pZBbJH8gWxg4wIeFcByZgFsObyqCiF2EFGGs8VthUiGK5u3OjiVewPsYOMFudQIGifaH+KOXNXU7jwbeNV6j0YBTILYCSpupxxsvdKBHtckM6QESP4Px6j4YpDEDvIiID/AazJmNeGEW9xQOwgIwJ+BmzJmL2SqstlBGIHGRHwHwVGZszX9myIHWREwG10xkzAHmnpTh8Zkiou0UGQM8JlFr3Alox3PZO18M+SMXOJvqLAFo7lqC5TxkzAFwpcizwN5GwZMwFvFNhbVhHIGTNmAt7suUef/juCnDWpmj6L1iREtyCfBe50WbQG7hoJl5AtfUQ8Y0azfeghFWR0gidZ6k/8LWNaIVsyZo+qDBQm9+Cl0NzyRVYBdbRvXwocdYCgAQ4FJ2R0gghehbFGskZYz6oMzX2nT7LuBdmzKoOAjQpERXIWuNNl0dfmgTfkkRkzk6wbke4FeXTGTMA7S3kv5AwZMwEf7NVWyFkyZgIGkjEL5ExJFf+b5Aw5M1xm0Z17craMmUs0EL1bk73lOmPGTMBKwGJ+DXLWjJmADYAvIWfOmAnYCHgLOXtSxSy6A7LUYUV9z6rDrd2m0EkgZLTchu8HR6Gy9Quxg4wI2EYguBXEDjIi4GBUtu4hdpARAdsIBLeC2EFGBByMytY9xA4yImAbgeBWEDvIiICDUdm6h9hBRgRsIxDcCmIHGQUB5s/L2mcA/ILcSMBnezRox+HfEn4TYyTgM53c+CPq6xF+j2okYHn2KwfrXp/265PsPK3h5VmGNBKw3P8sh+uZ8KtecR0NWIQ7eiE7k7ijfVEXDmYAHPWjFaNheN9fDTfDEr0VYf1lkrOdy3qDvOxP9lxJquTDMOorQwRvnRa4knS9Wv7OCFuAyvW4/LW88/ysaTbA6hnKBvsKEHDxGULABPysgHdNVnFpcwyPEZyDQ5gXBBwmbY6OCTgHhzAvCDhM2hwdE3AODmFeEHCYtDk61gBmiY3ueDUFYQ1gltgUB8xz2+KAWUNVHDBrqIoDlqThbJ858E50NDmL971N/VkcnrlQzqKXCYxXI4vDM9dQWfTyYmXqp8fhGffkHr1MgHob9ToskNd/M9RR9erVy0vd/nQOq0c4eQMCLj4BCJiAiytQfHiMYAIurkDx4TGCCbi4AsWHxwgm4OIKFB/ebysZD4hlqpI8AAAAAElFTkSuQmCC"/>
+
+                    <div class="row ">
+                        <p class="mb-3 fw-bolder">Feature Selection </p>
+                        <p> The software can automatically or manually select the most
+                            relevant features and variables that contribute to predicting student grades, 
+                            considering factors such as previous grades, attendance, study habits, and socioeconomic factors.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-6 col-md-12 ">
+                <div class="d-flex  px-3 py-5 shadow ">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAYAAAA5ZDbSAAAAAXNSR0IArs4c6QAABHFJREFUeF7t3VFWE0EQheFmJ7gScSXiSpCVoCvBneBOlIZBAiTWnZm/kunKzQue082d7vq6JhPE40Xzq3QFLkrvzptrBi5+CAxs4OIVKL49d7CBi1eg+PbcwQYuXoHi23MHGxirwPcp6Wtr7RJLzQu6fYx+WXPeVZKTj9HBV621u0FQ35d7eORs4N4BN8mHNDt+aORM4Aq4L4dnWOQs4H5bvs9urSPnD4mcBfww6HtudGaGQ84Avp4eqqJijTo+FHIGcH9i7siVX8MgZwBXvT0P+REqA/hP5dZ9t7fNd7KBn8U61NLP65tGNvAzcK/Dms/tm0U28Ctw/1M5ZAO/BS6HbOCPwKWQDbwfuAyygQ8Dl0A28P+Bh0c2cAw8NLKBNeBhkQ2sAw+JbOB5wMMhG3g+8FDIBl4GPAyygZcDD4Fs4HXAm0c28HrgTSMbmAHeLLKBOeBNIhuYBd4csoF54LXIqAka9lyrNuJvVWbUYemv/6BrQcMMPFXg9csSZNQEDTPwB+Alt2vUBA0z8F7gucioCRo2MPBBmRMMoCZomIGR44CaoGEGNjBSgeIhaNOhYe5g5OihJmgYAKyuZ8Qfpqj6ag2kPDTMwFLNo0moCRpm4MhOGkdN0DADS4DRJNQEDTNwZCeNoyZomIElwGgSaoKGGTiyk8ZREzTMwBJgNAk1QcMMHNlJ46gJGmZgCTCahJqgYQaO7KRx1AQNM7AEGE1CTdAwA0d20jhqgoYZWAKMJqEmaJiBIztpHDVBwzYIrO5vS3/9qK75+KfFwFLNo0kGnvGvJ9RiuYOjY7czvqZYNAidN6MMi6eqa5YugIb5Fi3VPJqEmqBhBo7spHHUBA0zsAQYTUJN0DADR3bSOGqChhlYAowmoSZomIEjO2kcNUHDDCwBRpNQEzTMwJGdNI6aoGEGlgCjSagJGmbgyE4aR03QMANLgNEk1AQNOwNgtV7H+Hl8dFCextUFS2EG/lcmAx84MeqBUwu49bx9ZVDXLDUdGuYOdgdHp049cO7gqJLTuFpQMe5pmlr8Nbcn9Rrq/k6Vt6YGkolaACnMt2jfoqODoh64U3UcvT538IETYeCoVfwe/KZCpzow7mB3sNiqK3+wMOcqajesOb3qNej3TDpvTQ0kE3XBUpifov0UHR0U9cC5g6NK+iHLD1niGfkwTe2upfnVv0+9i0l1QMOA92Bp0cUnoSZomIGRo4eaoGEGNjBSgeIhaNOhYe5g5OihJmjYtL2H1tolstXzC/ndWvtEbjsD+L61dkUu8oyyfrTWvpH7zQDuuB3Zr/kV6LgdGXtlAPfb8527eLYRfnvuK8gA7rnXE/LsXZ7xN3x5bIpf9P6zgPs6l/zfufT+Rsm7neqFrzcTuN+qeyff4KuuFZiGm3mL3iV4QfZHp7cHs7/n9ocq/La8e5nMDt69TsftT9efp6/niN1B++vn9LW/haW/jgWcvhFfYH8FDFz8ZBjYwMUrUHx77mADF69A8e25gw1cvALFt+cONnDxChTf3l/d9QCIjODtLQAAAABJRU5ErkJggg=="/>
+                    <div class="row ">
+                        <p class="mb-3 fw-bolder">Reporting and Analytics</p>
+                        <p>Generates comprehensive reports and
+                            analytics based on predicted grades and historical data, enabling educators and
+                            administrators to gain insights and identify areas for improvement.</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+</section>
+
+
+<!--contact section-->
+<section class="common-section bg-color contact-section text-white" id="contact_section">
+    <div class="custom-shape-divider-top-1684211116">
+        <svg data-name="Layer 1" preserveAspectRatio="none" viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg">
+            <path class="shape-fill"
+                  d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
+        </svg>
+    </div>
+
+    <div class="container text-center fw-bold common-title ">
+        <h2 class="common-heading text-white ">Contact Us</h2>
+        <hr class="w-25 mx-auto">
+    </div>
+
+    <div class="container ">
+        <div class="form-section  mx-auto">
+            <form action="{{ url_for('contact') }}" method="POST">
+                <div class="mb-3">
+                    <div class="row">
+                        <div class="col">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email"  required>
+                    <div id="emailHelp" class="form-text text-white">We'll never share your email with anyone else.
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="message">Message</label>
+                    <textarea id="message" class="form-control" placeholder="Enter your message " name="message" rows="3" required></textarea>
+                </div>
+
+                <button type="submit" value=submit class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+
+</section>
+
+
+<!--contact section end -->
+
+
+<!--footer section-->
+
+<footer class="main-footer-section">
+            <div class="row g-0">
+            </div>
+        <div class="container">
+            <hr class="container mx-auto">
+
+            <div class="row">
+                <div class="col-lg-8 col-12 ">
+                    Copyright ©2023 All rights reserved. | This template is made with by <span class="bg-theme"> Ritik Kumar Sinha</span>
+                </div>
+                <div class="col-md-4 col-12">
+                    <div class="d-flex justify-content-center justify-content-lg-end gap-5 mt-lg-0 mt-3">
+                        <a href="https://your-discord-link-here" target="_blank">
+                            <div class="icon-span d-flex justify-content-center align-items-center rounded-circle mb-3">
+                                <i class="fa-brands fa-discord"></i>
+                            </div>
+                        </a>
+                        <a href="https://your-whatsapp-link-here" target="_blank">
+                            <div class="icon-span d-flex justify-content-center align-items-center rounded-circle mb-3">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                        </a>
+                        <a href="https://your-twitter-link-here" target="_blank">
+                            <div class="icon-span d-flex justify-content-center align-items-center rounded-circle mb-3">
+                                <i class="fa-brands fa-twitter"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+</footer>
+
+<!--footer sectoin ends -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+<script>
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+</script>
+</body>
+</html>

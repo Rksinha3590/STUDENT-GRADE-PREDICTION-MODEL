@@ -1,0 +1,163 @@
+{% extends 'layout.html' %}
+
+{% block title %}Prediction | Rksinha{% endblock %}
+
+{% block left %}
+
+<h1 class="text-center mt-4">Student Grade Prediction</h1>
+    <blockquote class="blockquote">
+      <p class="text-center">
+        Please ensure G1 and G2 values are between <strong>1 and 20 </strong> ,
+        while other inputs
+        <br />
+        should fall within the range of <strong>1 to 5. </strong> Only when
+        these criteria are met
+        <br />
+        will the <strong> 'Predict' </strong> button be enabled for result
+        prediction..
+      </p>
+    </blockquote>
+
+    <form id="predictForm" class="container">
+      <div class="form-group mb-3">
+        <label class="form-label" for="g1">1st Year Grade(min:1 max:20):</label>
+        <input
+          type="number"
+          class="form-control"
+          id="g1"
+          name="g1"
+          min="1"
+          max="20"
+          oninput="validateInputs()"
+        />
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="g2">2nd Year Grade(min:1 max:20):</label>
+        <input
+          type="number"
+          class="form-control"
+          id="g2"
+          name="g2"
+          min="1"
+          max="20"
+          oninput="validateInputs()"
+        />
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="studytime">Study Time Rating(min:1 max:5):</label>
+        <input
+          type="number"
+          class="form-control"
+          id="studytime"
+          name="studytime"
+          min="1"
+          max="5"
+          oninput="validateInputs()"
+        />
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="health">Health Rating(min:1 max:5):</label>
+        <input
+          type="number"
+          class="form-control"
+          id="health"
+          name="health"
+          min="1"
+          max="5"
+          oninput="validateInputs()"
+        />
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="famrel">Family Member(min:1 max:5):</label>
+        <input
+          type="number"
+          class="form-control"
+          id="famrel"
+          name="famrel"
+          min="1"
+          max="5"
+          oninput="validateInputs()"
+        />
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="failures">No. of Subject Failures(min:1 max:5):</label>
+        <input
+          type="number"
+          class="form-control"
+          id="failures"
+          name="failures"
+          min="1"
+          max="5"
+          oninput="validateInputs()"
+        />
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="absences">Absences Ratio(min:1 max:5):</label>
+        <input
+          type="number"
+          class="form-control"
+          id="absences"
+          name="absences"
+          min="1"
+          max="5"
+          oninput="validateInputs()"
+        />
+      </div>
+      <div class="d-grid gap-2">
+        <button
+          type="submit"
+          class="btn btn-success"
+          data-toggle="modal"
+          data-target="#predictionModal"
+          id="predictButton"
+          disabled
+        >
+          Predict
+        </button>
+      </div>
+    </form>
+    <div
+      class="modal fade"
+      id="predictionModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="predictionModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="predictionModalLabel">
+              Prediction Result
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p id="result"></p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,354 @@
+{% extends 'layout.html' %}
+
+{% block title %}Model-Graph | Rksinha{% endblock %}
+
+{% block left %}
+
+<div class="container mt-5">
+    <div class="jumbotron">
+      <h1 class="display-4">
+        Visualizing Data Dynamics of student training model
+      </h1>
+      <p class="lead">
+        Heatmaps, Pie Charts, and Overfitting Models" Graphs like heatmaps and
+        pie charts reveal relationships while overfitting models illustrate
+        accuracy versus complexity balance. These visualizations enrich
+        insights, unveiling patterns and trends within complex datasets.
+      </p>
+      <hr class="my-4" />
+      <p>
+        Click here to predict your academic outcome using a model analyzing
+        grades, study habits, and related factors.
+      </p>
+      <a class="btn btn-success btn-lg" href="/prediction" role="button"
+        >Go to Prediction</a
+      >
+    </div>
+    <div class="row">
+      <div class="card col-md-4 mb-4">
+        <img
+          src="{{ url_for('static', filename = 'images/Screenshot from 2024-01-09 15-46-16.png') }}"
+          class="card-img-top"
+          alt="..."
+          style="width: 350px; height: 300px"
+        />
+        <div class="card-body">
+          <p class="card-text">
+            It shows a scatter plot with several data points and two lines.
+            Based on the axes labels, it seems to be plotting study time on
+            the x-axis and failures on the y-axis. The two lines appear to be
+            a linear regression line (blue) and a locally estimated
+            scatterplot smoothing (LOESS) line (orange).
+          </p>
+        </div>
+      </div>
+      <div class="card col-md-4 mb-4">
+        <img
+          src="{{ url_for('static', filename = 'images/Screenshot from 2024-01-09 15-46-50.png') }}"
+          class="card-img-top"
+          alt="..."
+          style="width: 350px; height: 300px"
+        />
+        <div class="card-body">
+          <p class="card-text">
+            If the graph shows an upward slope, it suggests a positive
+            correlation between g3(subject) and student count. This means that
+            as the g3 score increases, the number of students also increases.
+          </p>
+        </div>
+      </div>
+      <div class="card col-md-4 mb-4">
+        <img
+          src="{{ url_for('static', filename = 'images/Screenshot from 2024-01-09 15-47-34.png') }}"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <p class="card-text">
+            The pie chart slices reveal the distribution of students choosing
+            either GP or MS programs. The relative sizes of the slices tell us
+            what proportion of students prefer each option.
+          </p>
+        </div>
+      </div>
+      <div class="card col-md-4 mb-4">
+        <img
+          src="{{ url_for('static', filename = 'images/Screenshot from 2024-01-09 15-47-43.png') }}"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <p class="card-text">
+            This pie chart reveals the gender distribution of your students.
+            The blue slice, representing 52.7% of students, shows the
+            proportion of females. The orange slice, representing 47.3% of
+            students, shows the proportion of males.
+          </p>
+        </div>
+      </div>
+      <div class="card col-md-4 mb-4">
+        <img
+          src="{{ url_for('static', filename = 'images/Screenshot from 2024-01-09 15-47-54.png') }}"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <p class="card-text">
+            The pie chart reveals a clear imbalance in student distribution
+            between rural and urban areas. As you can see, the much larger
+            blue slice representing 77.7% of students indicates a
+            significantly higher proportion residing in urban areas. In
+            contrast, the smaller orange slice representing 22.3% of students
+            represents those living in rural areas.
+          </p>
+        </div>
+      </div>
+      <div class="card col-md-4 mb-4">
+        <img
+          src="{{ url_for('static', filename = 'images/Screenshot from 2024-01-09 15-48-16.png') }}"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <p class="card-text">
+            As you can see, the larger blue slice, encompassing 88.4% of the
+            pie, indicates that a majority of the students whose family member
+            is more than 3 . The smaller orange slice, representing 28.9%,
+            shows the proportion of students whose family member is less than
+            3
+          </p>
+        </div>
+      </div>
+      <div class="card col-md-4 mb-4">
+        <img
+          src="{{ url_for('static', filename = 'images/Screenshot from 2024-01-09 15-48-27.png') }}"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <p class="card-text">
+            As you can see, the larger blue slice, encompassing 89.6% of the
+            pie, indicates that a majority of the students whose parents live
+            together . The smaller orange slice, representing 10.4%, shows the
+            proportion of students whose parents live apart
+          </p>
+        </div>
+      </div>
+      <div class="card col-md-4 mb-4">
+        <img
+          src="{{ url_for('static', filename = 'images/Screenshot from 2024-01-09 15-48-37.png') }}"
+          class="card-img-top"
+          alt="..."
+        />
+        <p class="card-text">
+          As you can see, In this pie status we show the percentage of student
+          mom job so, 8.6% in health, 14.7% in teacher, 14.9% as housewife,
+          26.1% in service and 35.7% others
+        </p>
+      </div>
+      <div class="card col-md-4 mb-4">
+        <img
+          src="{{ url_for('static', filename = 'images/Screenshot from 2024-01-09 15-48-49.png') }}"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <p class="card-text">
+            As you can see, In this pie status we show the percentage of
+            student Father job so, 6.6% in health, 7.3% in teacher, 5.1% as
+            jobless, 28.1% in service and 54.9% others
+          </p>
+        </div>
+      </div>
+      <div class="card col-md-4 mb-4">
+        <img
+          src="{{ url_for('static', filename = 'images/Screenshot from 2024-01-09 15-49-10.png') }}"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <p class="card-text">
+            As you can see, In this pie status we show the guardian of the
+            student Father job so, 69.1% student has mother guardian, 22.8% as
+            father guardian and 8.1% as others
+          </p>
+        </div>
+      </div>
+      <div class="card col-md-4 mb-4">
+        <img
+          src="{{ url_for('static', filename = 'images/Screenshot from 2024-01-09 15-49-36.png') }}"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <p class="card-text">
+            As you can see, the larger blue slice, encompassing 54.2% of the
+            pie, indicates that a majority of the students who paid their fees
+            . The smaller orange slice, representing 45.8%, shows the
+            proportion of students who do not paid their fees
+          </p>
+        </div>
+      </div>
+      <div class="card col-md-4 mb-4">
+        <img
+          src="{{ url_for('static', filename = 'images/Screenshot from 2024-01-09 15-49-46.png') }}"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <p class="card-text">
+            As you can see, the larger blue slice, encompassing 50.9% of the
+            pie, indicates that a majority of the students who do good in
+            extra circular activities . The smaller orange slice, representing
+            49.1%, shows the proportion of students who do not do good in
+            extra circular activities
+          </p>
+        </div>
+      </div>
+      <div class="card col-md-4 mb-4">
+        <img
+          src="{{ url_for('static', filename = 'images/Screenshot from 2024-01-09 15-49-55.png') }}"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <p class="card-text">
+            As you can see, the larger blue slice, encompassing 79.5% of the
+            pie, indicates that a majority of the students do good in their
+            nursery studies. The smaller orange slice, representing 20.5%,
+            shows the proportion of students who do not do good in their
+            nursery studies
+          </p>
+        </div>
+      </div>
+      <div class="card col-md-4 mb-4">
+        <img
+          src="{{ url_for('static', filename = 'images/Screenshot from 2024-01-09 15-50-04.png') }}"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <p class="card-text">
+            As you can see, the larger blue slice, encompassing 94.9% of the
+            pie, indicates that a majority of the students do good in their
+            higher studies. The smaller orange slice, representing 5.1%, shows
+            the proportion of students who do not do good in their heigher
+            studies
+          </p>
+        </div>
+      </div>
+      <div class="card col-md-4 mb-4">
+        <img
+          src="{{ url_for('static', filename = 'images/Screenshot from 2024-01-09 15-50-11.png') }}"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <p class="card-text">
+            As you can see, the larger blue slice, encompassing 88.3% of the
+            pie, indicates that a majority of the students identify using
+            internet. The smaller orange slice, representing 16.7%, shows the
+            proportion of students who do not use internet
+          </p>
+        </div>
+      </div>
+      <div class="card col-md-4 mb-4">
+        <img
+          src="{{ url_for('static', filename = 'images/Screenshot from 2024-01-09 15-50-17.png') }}"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <p class="card-text">
+            As you can see, the larger blue slice, encompassing 66.6% of the
+            pie, indicates that a majority of the students not identify as
+            romantic. The smaller orange slice, representing 33.4%, shows the
+            proportion of students identify as romantic.
+          </p>
+        </div>
+      </div>
+      <div class="card col-md-4 mb-4">
+        <img
+          src="{{ url_for('static', filename = 'images/Screenshot from 2024-01-09 15-50-35.png') }}"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <p class="card-text">
+            The orange line shows how well a machine learning model performs
+            on real-world data (testing accuracy), while the blue line shows
+            how well it does on data it’s already seen (training accuracy).
+            The bigger the gap, the worse the model generalizes to new data.
+            It’s like a student acing practice tests but bombing the real
+            exam.
+          </p>
+        </div>
+      </div>
+      <div class="card col-md-4 mb-4">
+        <img
+          src="{{ url_for('static', filename = 'images/Screenshot from 2024-01-09 15-50-52.png') }}"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <p class="card-text">
+            Training accuracy (blue) shoots for the stars, memorizing quirks
+            like a cramming student. Testing accuracy (orange) stumbles
+            behind, reflecting real-world performance. The gap screams
+            "overfitting!" Model needs to learn, not just copy, to ace the
+            unseen exam.
+          </p>
+        </div>
+      </div>
+      <div class="card col-md-4 mb-4">
+        <img
+          src="{{ url_for('static', filename = 'images/Screenshot from 2024-01-09 15-51-10.png') }}"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <p class="card-text">
+            The image is a decision tree, which is a type of machine learning
+            algorithm that can be used for classification or regression tasks.
+            The tree is made up of nodes, which are represented by circles in
+            the image. Each node has a decision rule associated with it, which
+            is based on one or more features of the data. The leaves of the
+            tree represent the predictions that the model makes.
+          </p>
+        </div>
+      </div>
+      <div class="card col-md-4 mb-4">
+        <img
+          src="{{ url_for('static', filename = 'images/Screenshot from 2024-01-09 15-51-27.png') }}"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <p class="card-text">
+            Training accuracy skyrockets (blue), but testing accuracy stumbles
+            (orange). Model overfits the training data, memorizing quirks
+            instead of learning, leading to poor performance on unseen data.
+            Like a student acing practice tests but bombing the real exam.
+          </p>
+        </div>
+      </div>
+      <div class="card col-md-4 mb-4">
+        <img
+          src="{{ url_for('static', filename = 'images/Screenshot from 2024-01-09 15-51-49.png') }}"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <p class="card-text">
+            The graph shows the accuracy of a machine learning model on both
+            its training and testing data. The blue line shows the training
+            accuracy, which is how well the model performs on the data it was
+            trained on. The orange line shows the testing accuracy, which is
+            how well the model performs on new data that it has never seen
+            before.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock %}

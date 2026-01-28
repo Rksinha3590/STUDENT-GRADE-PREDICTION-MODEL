@@ -1,0 +1,72 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home | SGPM | Rksinha{% endblock %}
+
+{% block left %}
+
+
+<div class="container">
+    <div class="jumbotron bg-light">
+      <h1 class="display-4">Welcome to Student Grade Prediction</h1>
+      <p class="lead">
+        The student prediction model utilizes linear regression to forecast
+        final grades based on factors like previous grades (G1, G2), study
+        time, health, family relations, failures, and absences. Trained on
+        student data, this model aids in anticipating academic outcomes,
+        enabling tailored support and interventions for improved performance.
+      </p>
+      <hr class="my-4" />
+      <p>
+        Click here to predict your academic outcome using a model analyzing
+        grades, study habits, and related factors.
+      </p>
+      <a class="btn btn-success btn-lg" href="/prediction" role="button"
+        >Go to Prediction</a
+      >
+    </div>
+    <div class="row">
+      <div class="card col-md-4 mb-4">
+        <img
+          src="{{ url_for('static', filename = 'images/Indiabengal.jpg') }}"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <p class="card-text">
+            This predictive model aids students by offering insights into
+            potential academic performance, enabling proactive measures for
+            improvement and personalized support.
+          </p>
+        </div>
+      </div>
+      <div class="card col-md-4 mb-4">
+        <img
+          src="{{ url_for('static', filename = 'images/Prediction-1024x576.jpg') }}"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <p class="card-text">
+            The model predicts final grades based on past academic performance
+            and various factors, providing valuable foresight for student
+            progress and targeted intervention.
+          </p>
+        </div>
+      </div>
+      <div class="card col-md-4 mb-4">
+        <img
+          src="{{ url_for('static', filename = 'images/istockphoto-1172243859-612x612.jpg') }}"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <p class="card-text">
+            The model achieves accuracy by analyzing student data, continually
+            refining predictions through regression, ensuring reliable
+            insights into academic outcomes.
+          </p>
+        </div>
+      </div>
+    </div>
+</div>
+{% endblock %}

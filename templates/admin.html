@@ -1,0 +1,28 @@
+{% extends 'adminlay.html' %}
+
+{% block title %}Home | SGPM | ADMIN{% endblock %}
+
+{% block content %}
+
+
+<div class="container ">
+    <div class="jumbotron ">
+        <h2 class="common-heading text-black text-center fw-bold common-title "> Admin Panel</h2>
+        
+        
+      <p>
+        This is Student Grade Prediction Model Admin panel Dashboard, Where All Student and Users Data is Managing Properly...
+        You Can Handle the Customer Support and Read the User Questions and Feeback..
+      </p>
+      <hr class="my-4" />
+      <p >
+        Click here to check and Reply Users Feedback Messages and Questions...
+      </p>
+      <a class="btn btn-success btn-lg" href="{{ url_for('ticket') }}" role="button"
+        >Feedback Msg</a
+      >
+    </div>
+    
+</div>
+
+{% endblock %}

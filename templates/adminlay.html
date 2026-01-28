@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/bootstrap.css' )}}"/> 
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/sgpm.css' )}}"/> 
+    <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+          referrerpolicy="no-referrer" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+
+<!--   plx download the images, gifs from Pixcap Website here http://bit.ly/3zJ49Q7 -->
+
+<nav class="navbar navbar-expand-lg bg-color py-4 pt-lg-5">
+    <div class="container">
+        <a class="navbar-brand text-white fw-bold" href="#">Student Grade Prediction Model | ADMIN</a>
+        <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                class="navbar-toggler"
+                data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
+                <li class=" nav-item">
+                    <a aria-current="page" class="nav-link active" href="{{ url_for('admin_home') }}">Home</a>
+                </li>               
+                <li class=" nav-item">
+                    <a class=" nav-link" href="{{ url_for('ticket') }}">Tickets</a>
+                </li>               
+                <li class=" nav-item">
+                    <a class=" nav-link" href="{{ url_for('Showuser') }}">Show Users</a>
+                </li>
+                <li class=" nav-item">
+                    <a class=" nav-link" href="{{ url_for('admin_logout') }}">Logout</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+<!--hero section-->
+
+<section class="bg-main bg-color text-white">
+    <div class="content">
+        {% block content%}{% endblock %}
+
+    </div>
+    
+</section>
+
+<!--hero section end -->
+
+
+
+<!--footer section-->
+
+<footer class="main-footer-section">
+            <div class="row g-0">
+            </div>
+        <div class="container">
+            <hr class="container mx-auto">
+
+            <div class="row">
+                <div class="col-lg-8 col-12 ">
+                    Copyright ©2023 All rights reserved. | This template is made with by <span class="bg-theme"> Ritik Kumar Sinha</span>
+                </div>
+                
+            </div>
+        </div>
+    
+</footer>
+
+<!--footer sectoin ends -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+<script>
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+</script>
+</body>
+</html>
